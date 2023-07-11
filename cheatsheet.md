@@ -1,5 +1,5 @@
 
-# Intial Install of .Net6 core in your Terminal (CLI)
+# Initial Install of .Net6 core in your Terminal (CLI)
 ```csharp
     dotnet tool install --global dotnet-ef
 ```
