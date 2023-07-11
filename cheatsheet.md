@@ -16,6 +16,7 @@
 - dotnet add package Microsoft.EntityFrameworkCore.Design --version 6.0.3
 - dotnet ef migrations add FirstMigration
 - dotnet ef database update
+- dotnet ef migrations add FirstMigration -v
 # Starter Code
 **Static Function**
 ```csharp
