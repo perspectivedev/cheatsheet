@@ -92,6 +92,7 @@ public IActionResult FunctionName(type name)
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 ```
 ***namespace...***
 ```csharp
