@@ -155,6 +155,7 @@ app.Run();
 [MaxLength(45, ErrorMessage="This was not suppose to exceed this many characters")]
 [DataType(DataType.EmailAddress)]
 [RegularExpression(@"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*", ErrorMessage = "Invalid email format")]
+[RegularExpression(@"^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$", ErrorMessage = "Invalid email format")]
 *must include a span element in your .cshtml file
 <span asp-for="name"></span>
 ```
