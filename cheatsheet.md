@@ -68,6 +68,9 @@ HttpContext.Session.SetInt32("UserId", newUser.UserId);
 return RedirectToAction("SomeAction");
 // Surrounding registration code
 ```
+```csharp
+using Microsoft.AspNetCore.Mvc.Filters;
+```
 **.cshtml/.html**
 ```csharp
 <form action="process" method="post">    
