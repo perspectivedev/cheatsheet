@@ -62,6 +62,12 @@ public static class Calculator
 ```csharp
 return RedirectToAction("Here");
 ```
+```csharp
+// Surrounding registration code
+HttpContext.Session.SetInt32("UserId", newUser.UserId);
+return RedirectToAction("SomeAction");
+// Surrounding registration code
+```
 **.cshtml/.html**
 ```csharp
 <form action="process" method="post">    
@@ -82,13 +88,6 @@ public IActionResult FunctionName(type name)
 {
     // Code goes here
 }
-```
-```csharp
-// Surrounding registration code
-HttpContext.Session.SetInt32("UserId", newUser.UserId);
-return RedirectToAction("SomeAction");
-// Surrounding registration code
-
 ```
 ***pragma...***
 ```csharp
