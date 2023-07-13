@@ -83,6 +83,13 @@ public IActionResult FunctionName(type name)
     // Code goes here
 }
 ```
+```csharp
+// Surrounding registration code
+HttpContext.Session.SetInt32("UserId", newUser.UserId);
+return RedirectToAction("SomeAction");
+// Surrounding registration code
+
+```
 ***pragma...***
 ```csharp
 #pragma warning disable CS8618
