@@ -311,6 +311,32 @@ public class Post
     public User? Creator { get; set; }
 }
 ```
-
+#
+***Include***
+```csharp
+// Number of posts created by this User    
+int numPosts = _context.Users        
+                        // Including Posts, so that we may query on this field        
+                        .Include(user => user.AllPosts)        
+                        // Get a User with a particular UserId        
+                        .FirstOrDefault(user => user.UserId == userId)        
+                        // Now, with a reference to a User object, and access to a User's Posts
+                        // we can get the .Count property of the Posts List        
+                        .AllPosts.Count;         
+// User with the longest Post, we can do this in two stages    
+// First, find the Length of the longest Post
+int longestPostLength = _context.Posts.Max(post => post.Content.Length);         
+// Second, select one User whose AllPosts has Any that matches this character count    
+// Note here that AllPosts is a List, and thus can take a LINQ expression such as .Any()    
+User userWithLongest = _context.Users        
+                               .Include(user => user.AllPosts)        
+                               .FirstOrDefault(user => user.AllPosts
+                               .Any(c => c.Content.Length == longestPostLength));         
+// Posts NOT related to this User:    
+// Since this query only requires checking a Post's UserId    
+// and doesn't require us to check data contained in a Post's Creator    
+// we can do this WITHOUT a .Include()    
+List<Post> unrelatedPosts = _context.Posts.Where(c => c.UserId != userId).ToList();
+```
 
 
